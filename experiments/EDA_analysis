@@ -1,0 +1,134 @@
+
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+
+# # Load your dataset
+# file_path = '/Users/akhil/Desktop/thesis_code/results/cross-validation/1/data.txt'
+# df = pd.read_csv(file_path, delimiter='\t')
+
+# # Convert 'year' to integer type
+# df['year'] = df['year'].astype(int)
+
+# # Filter data for the specified years (1870 to 2020) and 17 countries
+# selected_years = range(1870, 2021)
+# selected_countries = ['AUS', 'BEL', 'CHE', 'DEU', 'DNK', 'ESP', 'FIN', 'FRA', 'GBR', 'ITA', 'JPN', 'NLD', 'NOR', 'PRT', 'SWE', 'USA', 'CAN']
+# filtered_df = df[(df['year'].isin(selected_years)) & (df['iso'].isin(selected_countries))]
+# # for specific country
+# #filtered_df_us = df[(df['year'].isin(selected_years)) & (df['iso'] ==  'USA')]
+
+# # Select relevant variables for visualization
+# variables_of_interest = ['drate', 'tloan_gdp_rdiff2', 'global_drate', 'global_loan']
+
+
+# rename_dict = {
+#     'drate': 'Domestic Yield Curve',
+#     'tloan_gdp_rdiff2': 'Domestic Credit',
+#     'global_drate': 'Global Yield Curve',
+#     'global_loan': 'Global Credit'
+# }
+# filtered_df.rename(columns=rename_dict, inplace=True)
+
+# # Calculate the Spearman correlation matrix
+# spearman_correlation_matrix = filtered_df[list(rename_dict.values())].corr(method='spearman')
+# #spearman_correlation_matrix = filtered_df_us[variables_of_interest].corr(method='spearman')
+
+# # Plot the Spearman correlation matrix
+# plt.figure(figsize=(10, 8))
+# sns.heatmap(spearman_correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
+# # plt.title('Spearman Correlation Matrix')
+# plt.show()
+
+
+# import pandas as pd
+# import matplotlib.pyplot as plt
+# import seaborn as sns
+
+# # Load your dataset
+# file_path = '/Users/akhil/Desktop/thesis_code/results/cross-validation/1/data.txt'
+# df = pd.read_csv(file_path, delimiter='\t')
+
+# # Convert 'year' to integer type
+# df['year'] = df['year'].astype(int)
+
+# # Filter data for the specified years (1870 to 2020) and 17 countries
+# selected_years = range(1870, 2021)
+# selected_countries = ['AUS', 'BEL', 'CHE', 'DEU', 'DNK', 'ESP', 'FIN', 'FRA', 'GBR', 'ITA', 'JPN', 'NLD', 'NOR', 'PRT', 'SWE', 'USA', 'CAN']
+# filtered_df = df[(df['year'].isin(selected_years)) & (df['iso'].isin(selected_countries))]
+
+# # Select relevant variables for visualization
+# variables_of_interest = ['drate', 'tloan_gdp_rdiff2', 'global_drate', 'global_loan']
+
+# # Calculate the Spearman correlation matrix for the original data
+# spearman_correlation_matrix_original = filtered_df[variables_of_interest].corr(method='spearman')
+
+# # Create a new dataframe with data for the United States only
+# df_us = df[df['iso'] == 'USA'][['year'] + variables_of_interest].reset_index(drop=True)
+
+# # Replace data for all other countries with data for the United States
+# mask = (df['iso'] != 'USA')
+# df.loc[mask, variables_of_interest] = df_us.loc[0, variables_of_interest].values
+
+# # Calculate the Spearman correlation matrix for the modified data
+# spearman_correlation_matrix_modified = df[variables_of_interest].corr(method='spearman')
+
+# # Plot the Spearman correlation matrix for the original data
+# plt.figure(figsize=(12, 5))
+# plt.subplot(1, 2, 1)
+# sns.heatmap(spearman_correlation_matrix_original, annot=True, cmap='coolwarm', fmt=".2f")
+# plt.title('Original Data - Spearman Correlation Matrix')
+
+# # Plot the Spearman correlation matrix for the modified data
+# plt.subplot(1, 2, 2)
+# sns.heatmap(spearman_correlation_matrix_modified, annot=True, cmap='coolwarm', fmt=".2f")
+# plt.title('Modified Data - Spearman Correlation Matrix')
+
+# plt.tight_layout()
+# plt.show()
+
+
+
+# # US as global proxy
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Load your dataset
+file_path = '/Users/akhil/Desktop/thesis_code/results/cross-validation/1/data.txt'
+df = pd.read_csv(file_path, delimiter='\t')
+
+# Convert 'year' to integer type
+df['year'] = df['year'].astype(int)
+
+
+# Select relevant variables for visualization and rename them
+variables_of_interest = ['drate', 'tloan_gdp_rdiff2', 'global_drate', 'global_loan']
+rename_dict = {
+    'drate': 'Domestic Yield Curve',
+    'tloan_gdp_rdiff2': 'Domestic Credit',
+    'global_drate': 'Global Yield Curve',
+    'global_loan': 'Global Credit'
+}
+df.rename(columns=rename_dict, inplace=True)
+
+# Filter data for the specified years (1870 to 2020) and 17 countries
+selected_years = range(1870, 2021)
+selected_countries = ['AUS', 'BEL', 'CHE', 'DEU', 'DNK', 'ESP', 'FIN', 'FRA', 'GBR', 'ITA', 'JPN', 'NLD', 'NOR', 'PRT', 'SWE', 'USA', 'CAN']
+filtered_df = df[(df['year'].isin(selected_years)) & (df['iso'].isin(selected_countries))]
+
+# Create a new dataframe with data for the United States only
+df_us = df[df['iso'] == 'USA'][['year'] + list(rename_dict.values())].reset_index(drop=True)
+
+# Replace data for global variables with data for the United States
+df.loc[df['iso'] != 'USA', list(rename_dict.values())[2:]] = df_us.loc[0, list(rename_dict.values())[2:]]
+
+# Calculate the Spearman correlation matrix for the entire modified data
+spearman_correlation_matrix_modified = df[list(rename_dict.values())].corr(method='spearman')
+
+# Plot the Spearman correlation matrix for the modified data
+plt.figure(figsize=(10, 8))
+sns.heatmap(spearman_correlation_matrix_modified, annot=True, cmap='coolwarm', fmt=".2f")
+# plt.title('Modified Data - Spearman Correlation Matrix with US Proxy for Global Variables')
+plt.show()
+
+
