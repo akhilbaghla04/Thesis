@@ -1,0 +1,38 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                &\multicolumn{3}{c}{Real GDP \(\text{growth}_{t,t+3}\) } &\multicolumn{3}{c}{Credit-to-GDP \(\text{change}_{t,t+3}\) }\\\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+                &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+\midrule
+Bank eq. ret.   &    0.027\sym{***}&    0.041\sym{***}&                  &    0.052\sym{***}&    0.075\sym{***}&                  \\
+                &   [3.18]         &   [4.25]         &                  &   [3.00]         &   [3.74]         &                  \\
+\addlinespace
+\( (\text{Bank eq. ret.})^2 \)&                  &   -0.033\sym{***}&                  &                  &   -0.048\sym{**} &                  \\
+                &                  &  [-2.98]         &                  &                  &  [-2.33]         &                  \\
+\addlinespace
+Nonfin. eq. ret.&    0.018\sym{**} &    0.025\sym{**} &                  &  -0.0029         &   -0.013         &                  \\
+                &   [2.12]         &   [2.04]         &                  &  [-0.23]         &  [-0.64]         &                  \\
+\addlinespace
+\( (\text{Nonfin. eq. ret.})^2 \)&                  &   -0.015         &                  &                  &    0.017         &                  \\
+                &                  &  [-0.97]         &                  &                  &   [0.71]         &                  \\
+\addlinespace
+Positive bank eq. ret.&                  &                  &   0.0050         &                  &                  &    0.030\sym{*}  \\
+                &                  &                  &   [0.48]         &                  &                  &   [1.70]         \\
+\addlinespace
+Negative bank eq. ret.&                  &                  &    0.078\sym{***}&                  &                  &     0.11\sym{***}\\
+                &                  &                  &   [5.30]         &                  &                  &   [3.25]         \\
+\addlinespace
+Positive nonfin. eq. ret.&                  &                  &    0.013         &                  &                  &    0.010         \\
+                &                  &                  &   [1.12]         &                  &                  &   [0.59]         \\
+\addlinespace
+Negative nonfin. eq. ret.&                  &                  &    0.028         &                  &                  &   -0.042         \\
+                &                  &                  &   [1.23]         &                  &                  &  [-1.38]         \\
+\midrule
+Country fixed effects&\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         \\
+Controls        &\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         \\
+Adj. \( R^2 \) (within)&     0.13         &     0.14         &     0.14         &     0.14         &     0.15         &     0.15         \\
+N               &     2548         &     2548         &     2548         &     2536         &     2536         &     2536         \\
+\bottomrule
+\end{tabular}
+}

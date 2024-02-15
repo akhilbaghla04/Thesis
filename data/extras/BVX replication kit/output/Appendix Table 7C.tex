@@ -1,0 +1,19 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\toprule
+                &\multicolumn{1}{c}{\shortstack{Real GDP \\ (peak-to-trough \\ decline)}}&\multicolumn{1}{c}{\shortstack{Real GDP growth  \\ (\%.-pt. decline, \\ peak-to-trough)}}&\multicolumn{1}{c}{\shortstack{Real GDP growth \\ (max deviation \\ from trend)}}\\\cmidrule(lr){2-2}\cmidrule(lr){3-3}\cmidrule(lr){4-4}
+                &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         \\
+\midrule
+Bank equity decline&    0.143\sym{***}&    0.125\sym{***}&   0.0856\sym{***}\\
+                &  [4.581]         &  [5.638]         &  [4.238]         \\
+\addlinespace
+Bank equity recovery&  0.00973         &  -0.0134         &  -0.0120         \\
+                &  [0.364]         & [-0.647]         & [-0.591]         \\
+\midrule
+Post-1945 dummy &\checkmark         &\checkmark         &\checkmark         \\
+Adj. \(R^2 \) (within)&    0.182         &    0.193         &    0.128         \\
+N               &      183         &      183         &      183         \\
+\bottomrule
+\end{tabular}
+}

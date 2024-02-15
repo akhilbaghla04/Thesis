@@ -1,0 +1,37 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                &\multicolumn{3}{c}{Real GDP  \(\text{growth}_{t,t+3}\)} &\multicolumn{3}{c}{Credit-GDP \(\text{change}_{t,t+3}\)}\\\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+                &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+\midrule
+\(r^B_{it} \leq -45\% \)&   -0.065\sym{***}&   -0.036\sym{***}&   -0.042\sym{***}&    -0.12\sym{***}&   -0.080\sym{***}&   -0.069\sym{***}\\
+                &  [-4.00]         &  [-2.78]         &  [-3.23]         &  [-4.81]         &  [-3.81]         &  [-3.13]         \\
+\addlinespace
+\(-45\% < r^B_{it} \leq -30\% \)&   -0.039\sym{***}&   -0.025\sym{***}&   -0.025\sym{***}&   -0.071\sym{***}&   -0.058\sym{***}&   -0.055\sym{***}\\
+                &  [-4.38]         &  [-2.92]         &  [-3.81]         &  [-4.18]         &  [-3.26]         &  [-3.06]         \\
+\addlinespace
+\(-30\% < r^B_{it} \leq -15\% \)&   -0.022\sym{***}&   -0.017\sym{**} &   -0.016\sym{***}&   -0.031\sym{***}&   -0.019\sym{*}  &   -0.022\sym{**} \\
+                &  [-3.09]         &  [-2.59]         &  [-3.06]         &  [-3.98]         &  [-1.94]         &  [-2.25]         \\
+\addlinespace
+\(-15\% < r^B_{it} \leq 0\% \)&  -0.0052         &  -0.0032         &  -0.0043         &   -0.013\sym{**} &  -0.0070         &  -0.0074         \\
+                &  [-1.23]         &  [-0.90]         &  [-1.39]         &  [-2.38]         &  [-0.98]         &  [-0.98]         \\
+\addlinespace
+\(15\% < r^B_{it} \leq 30\% \)&  -0.0021         &  -0.0017         &  -0.0011         &    0.012         &    0.010         &   0.0083         \\
+                &  [-0.33]         &  [-0.30]         &  [-0.21]         &   [1.47]         &   [1.21]         &   [1.13]         \\
+\addlinespace
+\(30\% < r^B_{it} \leq 45\% \)&  -0.0040         &-0.000095         &  -0.0016         &    0.025         &    0.024         &    0.022         \\
+                &  [-0.61]         & [-0.015]         &  [-0.23]         &   [1.61]         &   [1.43]         &   [1.47]         \\
+\addlinespace
+\( r^B_{it} > 45\% \)&   0.0025         &  0.00073         &   0.0035         &    0.016         &    0.014         &    0.013         \\
+                &   [0.31]         &  [0.100]         &   [0.51]         &   [1.48]         &   [1.33]         &   [1.20]         \\
+\midrule
+Country fixed effects&\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         \\
+Nonfin. eq. bins&\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         \\
+Other controls  &                  &\checkmark         &\checkmark         &                  &\checkmark         &\checkmark         \\
+Year fixed effects&                  &                  &\checkmark         &                  &                  &\checkmark         \\
+Adj. \(R^2 \) (within)&     0.06         &     0.17         &     0.10         &     0.04         &     0.17         &     0.15         \\
+N               &     2548         &     2548         &     2548         &     2536         &     2536         &     2536         \\
+\bottomrule
+\end{tabular}
+}
