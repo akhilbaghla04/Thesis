@@ -1,0 +1,10 @@
+* S.HSIANG STATA GRAPHING SCHEME
+
+#include s1mono
+
+linestyle  legend           none
+linestyle  plotregion		none
+anglestyle vertical_tick 	horizontal
+
+
+

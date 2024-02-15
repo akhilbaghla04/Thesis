@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                &\multicolumn{3}{c}{Real GDP  \(\text{growth}_{t,t+3}\)} &\multicolumn{3}{c}{Credit-GDP \(\text{change}_{t,t+3}\)}\\\cmidrule(lr){2-4}\cmidrule(lr){5-7}
+                &\multicolumn{1}{c}{(1)}         &\multicolumn{1}{c}{(2)}         &\multicolumn{1}{c}{(3)}         &\multicolumn{1}{c}{(4)}         &\multicolumn{1}{c}{(5)}         &\multicolumn{1}{c}{(6)}         \\
+\midrule
+Bank equity crash&   -0.030\sym{***}&   -0.027\sym{***}&   -0.023\sym{***}&   -0.051\sym{***}&   -0.035\sym{**} &   -0.032\sym{***}\\
+                &  [-3.05]         &  [-3.57]         &  [-2.88]         &  [-3.36]         &  [-2.67]         &  [-2.71]         \\
+\addlinespace
+Panic           &   -0.017         &   0.0018         &    0.017         &   -0.018         &  0.00080         &   0.0014         \\
+                &  [-1.05]         &   [0.13]         &   [1.68]         &  [-0.96]         &  [0.041]         &  [0.069]         \\
+\addlinespace
+Bank equity crash \( \times \) Panic&   -0.025         &   -0.021         &   -0.034\sym{**} &   -0.053\sym{*}  &   -0.055\sym{*}  &   -0.051         \\
+                &  [-1.44]         &  [-1.41]         &  [-2.64]         &  [-1.74]         &  [-1.69]         &  [-1.62]         \\
+\addlinespace
+Nonfinancial equity crash&   -0.030\sym{**} &   -0.028\sym{***}&   -0.024\sym{**} &   0.0098         &   0.0036         &  -0.0045         \\
+                &  [-2.60]         &  [-2.85]         &  [-2.36]         &   [0.86]         &   [0.27]         &  [-0.33]         \\
+\midrule
+Country fixed effects&\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         &\checkmark         \\
+Controls        &                  &\checkmark         &\checkmark         &                  &\checkmark         &\checkmark         \\
+Year fixed effects&                  &                  &\checkmark         &                  &                  &\checkmark         \\
+Adj. \(R^2 \) (within)&     0.05         &     0.11         &     0.07         &     0.03         &     0.15         &     0.13         \\
+N               &     2548         &     2548         &     2548         &     2536         &     2536         &     2536         \\
+\bottomrule
+\end{tabular}
+}
